@@ -26,15 +26,15 @@ Or install it yourself as:
 
 #Initialize DB connection
 
-Orm::Base.setup do
+MysqlSimpleOrm::Base.setup do
   { host: "localhost", username: "root", password: "root", database: "evangelizacion" }
 end
 
-class Team < Orm::Base
+class Team < MysqlSimpleOrm::Base
   has_many :members
 end
 
-class Member < Orm::Base
+class Member < MysqlSimpleOrm::Base
   belongs_to :team
 end
 
