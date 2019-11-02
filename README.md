@@ -22,7 +22,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+
+#Initialize DB connection
+
+Orm::Base.setup do
+  { host: "localhost", username: "root", password: "root", database: "evangelizacion" }
+end
+
+class Team < Orm::Base
+  has_many :members
+end
+
+class Member < Orm::Base
+  belongs_to :team
+end
+
+member = Member.first
+team = member.team
+all_members = team.members
+
+```
 
 ## Development
 
